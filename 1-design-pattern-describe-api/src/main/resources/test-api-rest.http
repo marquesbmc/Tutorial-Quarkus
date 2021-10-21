@@ -1,0 +1,36 @@
+### Variables 
+@apiurl = http://localhost:8888/api/client/v1
+
+
+###
+GET {{apiurl}}/listall
+
+###
+GET {{apiurl}}/idsearch/1
+
+###
+GET {{apiurl}}/name/Bruno
+
+###
+POST {{apiurl}} HTTP/1.1
+Content-Type: application/json
+
+{
+  "name":"string"
+}
+
+
+###
+DELETE http://localhost:8888/api/client/v1/1
+
+
+
+### Example
+POST https://example.com/comments HTTP/1.1
+Content-Type: application/xml
+Authorization: token xxx
+
+<request>
+    <name>sample</name>
+    <time>Wed, 21 Oct 2015 18:27:50 GMT</time>
+</request>
