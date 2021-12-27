@@ -13,45 +13,33 @@ import com.github.marquesbmc.repository.IClientRepository;
 @ApplicationScoped
 public class ClientService {
 
+
 	@Inject
 	private IClientRepository clientRepository;
+	
+	public long divZero(Long z ) throws Exception  {
+		return z/0;
+	}
+	
 
-	public Boolean test() {
-		try {
-			return clientRepository.testar();
-		} catch (NotFoundException e) {
-			return null;
-		}
+	public List<Client> listAll() throws Exception  {
+		return clientRepository.listAll();
 	}
 
-	public List<Client> listAll() throws Throwable {
-		try {
-			return clientRepository.listAll();
-		} catch (NotFoundException e) {
-			return null;
-		}
-	}
-
-	public Client findBy(Long id) throws Throwable {
-
+	public Client findBy(Long id) throws Exception {
 		return clientRepository.findById(id);
-
 	}
 
-	public List<Client> findByName(String name) throws Throwable {
-
-		return clientRepository.findByName(name);
-
+	public List<Client> procurarNome(String name) throws Exception {
+		return clientRepository.procurarNome(name);
 	}
 
 	public Client post(Client client) throws Exception {
-
 		clientRepository.persist(client);
 		return client;
-
 	}
 
-	public Client updateById(Long id, Client client) throws Throwable {
+	public Client updateById(Long id, Client client) throws Exception  {
 		try {
 			Client c = clientRepository.findById(id);
 			if (c == null) {
@@ -67,20 +55,17 @@ public class ClientService {
 		}
 	}
 
-	public String deleteById(Long id) throws Throwable {
-
-		Boolean deleted = clientRepository.deleteById(id);
-
-		if (deleted) {
+	public String deleteById(Long id) throws Exception {
+		if (clientRepository.deleteById(id)) {
 			return "Item excluído";
 		} else {
 			return "Id não encontrado";
 		}
-
 	}
 
-	public boolean isPersistent(Client c) throws Throwable {
+	public boolean isPersistent(Client c) throws Exception {
 		return clientRepository.isPersistent(c);
 	}
+
 
 }

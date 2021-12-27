@@ -10,10 +10,10 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 @ApplicationScoped
 public interface IClientRepository extends PanacheRepository<Client>{
-	
-	 public Boolean testar();
-     
-	 public List<Client> findByName(String name);
+
+	public List<Client> procurarNome(String name) throws Exception;
+
 
 
 }
+

@@ -8,7 +8,7 @@ import java.util.Properties;
 public class PropertyFiles {
 
 	String result = "";
-	InputStream inputStream;
+	InputStream inputStream = null;
 
 	public String getPropValues(String mensagem) throws IOException {
 		try {
@@ -16,19 +16,14 @@ public class PropertyFiles {
 			String propFileName = "validation-messages.properties";
 
 			inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
-
-			if (inputStream != null) {
-				prop.load(inputStream);
-			} else {
-				throw new FileNotFoundException(
-						"Exception: Property file '" + propFileName + "' not found in the classpath");
-			}
+			prop.load(inputStream);
 
 			String msgValid = prop.getProperty(mensagem);
 
 			result = msgValid;
 		} catch (Exception e) {
-			System.out.println("Exception: " + e);
+			
+			e.printStackTrace();
 		} finally {
 			inputStream.close();
 		}

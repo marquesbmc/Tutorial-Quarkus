@@ -1,8 +1,5 @@
 <?xml version="1.0"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.marquesbmc</groupId>
 	<artifactId>1-design-pattern-describe-api</artifactId>
@@ -37,82 +34,70 @@
 		</dependency>
 
 
-		<!-- REST Client interactions -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-resteasy</artifactId>
-		</dependency>
-
-		<!-- dependency Injection -->
+		<!--MICROPROFILE/dependency Injection CDI 2.0  -->
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-arc</artifactId>
 		</dependency>
 
-
-		<!-- jdbc database h2 -->
+		<!-- MICROPROFILE/Document your REST APIs with OpenAPI - comes with Swagger UI -->
 		<dependency>
 			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-jdbc-h2</artifactId>
+			<artifactId>quarkus-smallrye-openapi</artifactId>
 		</dependency>
 
-		<!-- validator hibernate -->
+		<!-- MICROPROFILE/Monitor service health -->
 		<dependency>
 			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-hibernate-validator</artifactId>
-		</dependency>
-
-
-		<!-- database connection pool -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-agroal</artifactId>
+			<artifactId>quarkus-smallrye-health</artifactId>
 		</dependency>
 
 
-		<!-- REST services to consume and produce JSON payloads -->
+		<!-- REST/endpoint framework implementing JAX-RS and more -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-resteasy</artifactId>
+		</dependency>
+
+		<!--REST/JSON-B serialization support for RESTEasy-->
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-resteasy-jsonb</artifactId>
 		</dependency>
 
 
-		<!-- test code -->
+		<!--DATA/Connect to the H2 database with JDBC-->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-jdbc-h2</artifactId>
+		</dependency>
+
+		<!-- DATA/Validate object properties (field, getter) and method parameters for your beans (REST, CDI, JPA) -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-hibernate-validator</artifactId>
+		</dependency>
+
+
+		<!--DATA/Pool JDBC database connections (included in Hibernate ORM) -->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-agroal</artifactId>
+		</dependency>
+
+
+		<!-- TEST/unit testing framework for Java -->
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-junit5</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--TEST/Java DSL for easy testing of REST services-->
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-test-h2</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/com.google.api.client/google-api-client-googleapis-json -->
-		<dependency>
-			<groupId>com.google.api.client</groupId>
-			<artifactId>google-api-client-googleapis-json</artifactId>
-			<version>1.2.3-alpha</version>
-		</dependency>
-
-
-
-		<!-- microprofile/openapi -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-openapi</artifactId>
-		</dependency>
-
-		<!-- microprofile/health -->
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-smallrye-health</artifactId>
 		</dependency>
 
 	</dependencies>

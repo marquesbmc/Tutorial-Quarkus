@@ -9,11 +9,10 @@ import com.github.marquesbmc.model.Client;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 @ApplicationScoped
-public interface IClientRepository extends PanacheRepository<Client>{
-	
-	 public Boolean testar();
-     
-	 public List<Client> findByName(String name);
+public interface IClientRepository extends PanacheRepository<Client>  {
+
+	public List<Client> procurarNome(String name);
+
 
 
 }

@@ -3,7 +3,8 @@ package com.github.marquesbmc.infrastructure.exception;
 import javax.ws.rs.core.Response.Status;
 
 public class Message {
-	private String exceptionUser;
+
+	// private String exceptionUser;
 
 	private String stackTrace;
 
@@ -11,20 +12,20 @@ public class Message {
 
 	private Status statusCode;
 
-	public Message(String exU, String stT, String exp, Status st) {
-		this.exceptionUser = exU;
+	// public Message(String exU, String stT, String exp, Status st) {
+	public Message(String stT, String exp, Status st) {
+		// this.exceptionUser = exU;
 		this.stackTrace = stT;
 		this.exceptions = exp;
 		this.statusCode = st;
 	}
 
-	public String getExceptionUser() {
-		return exceptionUser;
-	}
-
-	public void setExceptionUser(String exceptionUser) {
-		this.exceptionUser = exceptionUser;
-	}
+	/*
+	 * public String getExceptionUser() { return exceptionUser; }
+	 * 
+	 * public void setExceptionUser(String exceptionUser) { this.exceptionUser =
+	 * exceptionUser; }
+	 */
 
 	public String getStackTrace() {
 		return stackTrace;
