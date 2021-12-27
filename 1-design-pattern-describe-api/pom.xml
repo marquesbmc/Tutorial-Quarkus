@@ -28,11 +28,7 @@
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-hibernate-orm-rest-data-panache</artifactId>
-		</dependency>
-
+		
 
 		<!--MICROPROFILE/dependency Injection CDI 2.0  -->
 		<dependency>
@@ -83,6 +79,12 @@
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-agroal</artifactId>
+		</dependency>
+		
+		<!--DATA/Hibernate ORM REST Data with Panache extension-->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-hibernate-orm-rest-data-panache</artifactId>
 		</dependency>
 
 

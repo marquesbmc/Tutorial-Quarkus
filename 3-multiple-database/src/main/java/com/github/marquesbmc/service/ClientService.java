@@ -5,7 +5,7 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.github.marquesbmc.model.Client;
+import com.github.marquesbmc.model.h2test.Client;
 import com.github.marquesbmc.repository.IClientRepository;
 
 @ApplicationScoped

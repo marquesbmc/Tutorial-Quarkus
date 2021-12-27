@@ -3,7 +3,7 @@ package com.github.marquesbmc.repository;
 import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 
-import com.github.marquesbmc.model.obras.Operacao;
+import com.github.marquesbmc.model.entities.Operacao;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 

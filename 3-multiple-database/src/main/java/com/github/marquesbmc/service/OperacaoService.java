@@ -5,7 +5,7 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.github.marquesbmc.model.obras.Operacao;
+import com.github.marquesbmc.model.entities.Operacao;
 import com.github.marquesbmc.repository.OperacaoRepository;
 
 @ApplicationScoped

@@ -15,11 +15,14 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.github.marquesbmc.Util;
+import org.jboss.logging.Logger;
+
+import com.github.marquesbmc.FormatStoreProcedure;
 import com.github.marquesbmc.model.storeprocedures.DadosNotaEmpenhoOGUSP017;
 
 import io.agroal.api.AgroalDataSource;
 import io.quarkus.agroal.DataSource;
+import io.quarkus.arc.log.LoggerName;
 
 @ApplicationScoped
 public class OGUSP017Repository {
@@ -27,9 +30,11 @@ public class OGUSP017Repository {
 	@Inject
 	@DataSource("db2")
 	AgroalDataSource usersDataSource;
+	
+	@LoggerName("StoreProcedure")
+	Logger logStoreProcedure;
 
 	public List<DadosNotaEmpenhoOGUSP017> getListaTeste(Long num) {
-		System.out.println("Iniciando ...");
 		Connection con = null;
 		List<DadosNotaEmpenhoOGUSP017> listaDadosNotaEmpenho = new ArrayList<DadosNotaEmpenhoOGUSP017>();
 		try {
@@ -53,9 +58,9 @@ public class OGUSP017Repository {
 
 			if (coErro == 0) {
 				rs = cstmt.getResultSet();
-				SimpleDateFormat formatoData = new SimpleDateFormat(Util.FORMATO_DATA, Util.LOCALE_PT_BR);
-				DecimalFormat formatoMoeda = new DecimalFormat(Util.FORMATO_MOEDA,
-						new DecimalFormatSymbols(Util.LOCALE_PT_BR));
+				SimpleDateFormat formatoData = new SimpleDateFormat(FormatStoreProcedure.FORMATO_DATA, FormatStoreProcedure.LOCALE_PT_BR);
+				DecimalFormat formatoMoeda = new DecimalFormat(FormatStoreProcedure.FORMATO_MOEDA,
+						new DecimalFormatSymbols(FormatStoreProcedure.LOCALE_PT_BR));
 				formatoMoeda.setRoundingMode(RoundingMode.UP);
 
 				while (rs.next()) {
@@ -70,19 +75,17 @@ public class OGUSP017Repository {
 					String valor = formatoMoeda.format(rs.getDouble(4));
 					dadosNotaEmpenho.setVlrNotaEmpenho(valor);
 
-					dadosNotaEmpenho.setSituacaoNotaEmpenho(Util.toCaixaAlta(rs.getString(6)));
+					dadosNotaEmpenho.setSituacaoNotaEmpenho(FormatStoreProcedure.toCaixaAlta(rs.getString(6)));
 					listaDadosNotaEmpenho.add(dadosNotaEmpenho);
 				}
 
-			} else if (coErro != 19) { // 19 - Lista Vazia
-				System.out.println("erro");
-			}
+			} 
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		System.out.println("saindo ....");
+			logStoreProcedure.warn(e);
+	
+		} 
 		return listaDadosNotaEmpenho;
 	}
 

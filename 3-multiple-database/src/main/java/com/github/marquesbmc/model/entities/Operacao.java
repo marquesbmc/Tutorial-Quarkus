@@ -1,4 +1,4 @@
-package com.github.marquesbmc.model.obras;
+package com.github.marquesbmc.model.entities;
 
 import java.math.BigDecimal;
 import java.util.Date;

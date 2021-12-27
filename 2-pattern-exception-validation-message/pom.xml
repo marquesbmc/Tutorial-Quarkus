@@ -30,12 +30,9 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	<dependencies>
-		<dependency>
-			<groupId>io.quarkus</groupId>
-			<artifactId>quarkus-hibernate-orm-rest-data-panache</artifactId>
-		</dependency>
 
+		<dependencies>
+		
 
 		<!--MICROPROFILE/dependency Injection CDI 2.0  -->
 		<dependency>
@@ -55,7 +52,6 @@
 			<artifactId>quarkus-smallrye-health</artifactId>
 		</dependency>
 
-
 		<!-- REST/endpoint framework implementing JAX-RS and more -->
 		<dependency>
 			<groupId>io.quarkus</groupId>
@@ -67,7 +63,6 @@
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-resteasy-jsonb</artifactId>
 		</dependency>
-
 
 		<!--DATA/Connect to the H2 database with JDBC-->
 		<dependency>
@@ -81,11 +76,16 @@
 			<artifactId>quarkus-hibernate-validator</artifactId>
 		</dependency>
 
-
 		<!--DATA/Pool JDBC database connections (included in Hibernate ORM) -->
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-agroal</artifactId>
+		</dependency>
+		
+		<!--DATA/Hibernate ORM REST Data with Panache extension-->
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-hibernate-orm-rest-data-panache</artifactId>
 		</dependency>
 
 
@@ -102,7 +102,6 @@
 			<artifactId>rest-assured</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 
 	</dependencies>
 	<build>

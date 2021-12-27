@@ -1,7 +1,5 @@
 package com.github.marquesbmc.resource;
 
-import org.jboss.logging.Logger;
-
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
@@ -19,11 +17,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.jboss.logging.Logger;
 
-import com.github.marquesbmc.model.Client;
+import com.github.marquesbmc.model.h2test.Client;
 import com.github.marquesbmc.service.ClientService;
 
 @Path("/client/v1")
@@ -32,13 +30,6 @@ import com.github.marquesbmc.service.ClientService;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ClientResource  {
 	
-	private static final Logger LOG = Logger.getLogger(ClientResource.class);
-
-	@ConfigProperty(name = "knowledgefactory.custom.error.msg.badrequest.JsonbException")
-	String jsonbException;
-
-	@ConfigProperty(name = "knowledgefactory.custom.error.msg.processingException")
-	String processingException;
 
 	@Inject
 	private ClientService clientService;
@@ -78,10 +69,6 @@ public class ClientResource  {
 		return Response.ok(clientService.post(client), MediaType.APPLICATION_JSON).status(Response.Status.CREATED)
 				.build();
 	}
-	
-	
-
-	
 	
 
 	@PUT

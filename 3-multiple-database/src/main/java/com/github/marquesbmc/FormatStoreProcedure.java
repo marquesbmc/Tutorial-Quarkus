@@ -2,7 +2,7 @@ package com.github.marquesbmc;
 
 import java.util.Locale;
 
-public class Util {	
+public class FormatStoreProcedure {	
 	
 	public static final String FORMATO_CONTA_CORRENTE  = "####.###.########-#";
 	public static final String FORMATO_CNPJ  = "##.###.###/####-##";
@@ -18,7 +18,7 @@ public class Util {
 	
 	public static String toCaixaAlta(String field){
 		String retorno = "";
-		if(!Util.isNotEmpty(field)){
+		if(!FormatStoreProcedure.isNotEmpty(field)){
 			retorno = field.trim().toUpperCase(LOCALE_PT_BR);
 		}
 		return retorno;
